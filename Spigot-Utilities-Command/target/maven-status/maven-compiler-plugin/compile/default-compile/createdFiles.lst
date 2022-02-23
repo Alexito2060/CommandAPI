@@ -1,0 +1,4 @@
+dev\alex\net\utilities\command\command\CommandExecutor.class
+dev\alex\net\utilities\command\command\CommandArgument.class
+dev\alex\net\utilities\command\completer\CommandCompleter.class
+dev\alex\net\utilities\command\Command.class

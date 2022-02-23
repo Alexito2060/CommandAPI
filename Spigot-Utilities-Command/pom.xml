@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <artifactId>Spigot-Utilities</artifactId>
+        <groupId>dev.alex.net.utilities</groupId>
+        <version>1.0</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>dev.alex.net.utilities.command</groupId>
+    <artifactId>Spigot-Utilities-Command</artifactId>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.8.8-R0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
+        </dependency>
+        <dependency>
+            <groupId>dev.alex.net.utilities.chat</groupId>
+            <artifactId>Spigot-Utilities-Chat</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version>
+               <executions>
+                   <execution>
+                       <goals>
+                           <goal>shade</goal>
+                       </goals>
+                       <phase>package</phase>
+                       <configuration>
+                           <createDependencyReducedPom>false</createDependencyReducedPom>
+                           <relocations>
+                               <relocation>
+                                   <pattern>dev.alex.net.utilities.chat.Chat</pattern>
+                                   <shadedPattern>dev.alex.net.utilities.command.chat.Chat</shadedPattern>
+                               </relocation>
+                           </relocations>
+                       </configuration>
+                   </execution>
+               </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
